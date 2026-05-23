@@ -56,9 +56,7 @@ const Hero = () => {
     const element = document.querySelector('#contact');
     if (element) {
       const offset = 80;
-      const bodyRect = document.body.getBoundingClientRect().top;
-      const elementRect = element.getBoundingClientRect().top;
-      const elementPosition = elementRect - bodyRect;
+      const elementPosition = element.getBoundingClientRect().top + window.scrollY;
       const offsetPosition = elementPosition - offset;
       window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
     }

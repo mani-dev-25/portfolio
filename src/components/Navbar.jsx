@@ -33,6 +33,17 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [mobileMenuOpen]);
+
   const navLinks = [
     { name: 'Home', target: '#home', id: 'home' },
     { name: 'About', target: '#about', id: 'about' },
@@ -45,19 +56,20 @@ const Navbar = () => {
   const handleLinkClick = (e, target) => {
     e.preventDefault();
     setMobileMenuOpen(false);
-    const element = document.querySelector(target);
-    if (element) {
-      const offset = 80; // height of the navbar
-      const bodyRect = document.body.getBoundingClientRect().top;
-      const elementRect = element.getBoundingClientRect().top;
-      const elementPosition = elementRect - bodyRect;
-      const offsetPosition = elementPosition - offset;
+    
+    setTimeout(() => {
+      const element = document.querySelector(target);
+      if (element) {
+        const offset = 80; // height of the navbar
+        const elementPosition = element.getBoundingClientRect().top + window.scrollY;
+        const offsetPosition = elementPosition - offset;
 
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth'
-      });
-    }
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      }
+    }, 150);
   };
 
   return (
@@ -67,11 +79,11 @@ const Navbar = () => {
         : 'py-3'
         }`}
       style={{
-        background: scrolled ? 'rgba(3, 0, 20, 0.75)' : 'transparent',
-        backdropFilter: scrolled ? 'blur(15px)' : 'none',
-        WebkitBackdropFilter: scrolled ? 'blur(15px)' : 'none',
-        borderBottom: scrolled ? '1px solid rgba(255, 255, 255, 0.05)' : '1px solid transparent',
-        boxShadow: scrolled ? '0 10px 30px rgba(0, 0, 0, 0.4)' : 'none',
+        background: (scrolled || mobileMenuOpen) ? 'rgba(3, 0, 20, 0.85)' : 'transparent',
+        backdropFilter: (scrolled || mobileMenuOpen) ? 'blur(15px)' : 'none',
+        WebkitBackdropFilter: (scrolled || mobileMenuOpen) ? 'blur(15px)' : 'none',
+        borderBottom: (scrolled || mobileMenuOpen) ? '1px solid rgba(255, 255, 255, 0.05)' : '1px solid transparent',
+        boxShadow: (scrolled || mobileMenuOpen) ? '0 10px 30px rgba(0, 0, 0, 0.4)' : 'none',
         zIndex: 1000,
         transition: 'all 0.4s ease'
       }}
@@ -166,7 +178,8 @@ const Navbar = () => {
               backdropFilter: 'blur(20px)',
               WebkitBackdropFilter: 'blur(20px)',
               borderBottom: '1px solid rgba(255, 255, 255, 0.08)',
-              overflow: 'hidden',
+              maxHeight: 'calc(100vh - 75px)',
+              overflowY: 'auto',
               zIndex: 999
             }}
           >
