@@ -63,17 +63,7 @@ const Hero = () => {
   };
 
   const handleDownloadCV = () => {
-    const link = document.createElement('a');
-
-    link.href = '/maniresume.pdf';
-
-    link.download = 'Manikandan_Resume.pdf';
-
-    document.body.appendChild(link);
-
-    link.click();
-
-    document.body.removeChild(link);
+    window.open('/Manikandan_A_Resume.pdf', '_blank');
   };
 
   return (
