@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaBars, FaTimes } from 'react-icons/fa';
 
@@ -62,11 +62,10 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`navbar navbar-expand-lg fixed-top transition-all duration-300 ${
-        scrolled
-          ? 'py-2'
-          : 'py-3'
-      }`}
+      className={`navbar navbar-expand-lg fixed-top transition-all duration-300 ${scrolled
+        ? 'py-2'
+        : 'py-3'
+        }`}
       style={{
         background: scrolled ? 'rgba(3, 0, 20, 0.75)' : 'transparent',
         backdropFilter: scrolled ? 'blur(15px)' : 'none',
@@ -77,7 +76,7 @@ const Navbar = () => {
         transition: 'all 0.4s ease'
       }}
     >
-      <div className="container">
+      <div className="container px-3 px-md-4">
         {/* Brand/Logo */}
         <a
           href="#home"
@@ -99,7 +98,7 @@ const Navbar = () => {
 
         {/* Toggler */}
         <button
-          className="navbar-toggler border-0 text-white p-2"
+          className="navbar-toggler border-0 text-white p-2 me-3"
           type="button"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           style={{

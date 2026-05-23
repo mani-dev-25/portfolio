@@ -1,15 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { FaGithub, FaLinkedin, FaYoutube, FaEnvelope, FaChevronDown } from 'react-icons/fa';
 import profileImg from '../assets/manikandan.jpg';
 
+const roles = [
+  'Full Stack Developer',
+  'Startup Builder',
+  'Creative Creator',
+  'Future Entrepreneur'
+];
+
 const Hero = () => {
-  const roles = [
-    'Full Stack Developer',
-    'Startup Builder',
-    'Creative Creator',
-    'Future Entrepreneur'
-  ];
 
   const [roleIndex, setRoleIndex] = useState(0);
   const [currentText, setCurrentText] = useState('');
@@ -48,7 +49,7 @@ const Hero = () => {
 
     timer = setTimeout(handleTyping, typingSpeed);
     return () => clearTimeout(timer);
-  }, [currentText, isDeleting, roleIndex]);
+  }, [currentText, isDeleting, roleIndex, typingSpeed]);
 
   const handleScrollToContact = (e) => {
     e.preventDefault();
@@ -74,7 +75,7 @@ const Hero = () => {
       style={{ background: 'transparent' }}
     >
       <div className="container position-relative z-2 py-5">
-        <div className="row align-items-center py-5">
+        <div className="row align-items-center align-items-lg-start py-5">
           {/* Left Column: Text Content */}
           <div className="col-lg-7 text-center text-lg-start order-2 order-lg-1">
             <motion.div
@@ -207,7 +208,7 @@ const Hero = () => {
           </div>
 
           {/* Right Column: Profile Image */}
-          <div className="col-lg-5 text-center order-1 order-lg-2 mb-5 mb-lg-0">
+          <div className="col-lg-5 text-center text-lg-end order-1 order-lg-2 mb-5 mb-lg-0">
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}

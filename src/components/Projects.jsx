@@ -1,6 +1,5 @@
-import React from 'react';
 import { motion } from 'framer-motion';
-import { FaGithub, FaExternalLinkAlt, FaCode, FaTv, FaLaptopCode, FaRocket } from 'react-icons/fa';
+import { FaGithub, FaExternalLinkAlt, FaTv } from 'react-icons/fa';
 import toonflixImg from '../assets/toonflix.png';
 
 const Projects = () => {

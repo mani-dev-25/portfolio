@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaEnvelope, FaMapMarkerAlt, FaPaperPlane, FaUserAlt, FaEdit, FaCheckCircle } from 'react-icons/fa';
 
@@ -41,7 +41,7 @@ const Contact = () => {
         setIsSubmitting(false);
         alert("Oops! There was a problem submitting your form. Please try again.");
       }
-    } catch (error) {
+    } catch {
       setIsSubmitting(false);
       alert("Error connecting to server. Please check your internet connection and try again.");
     }
