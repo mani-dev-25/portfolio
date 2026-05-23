@@ -63,7 +63,17 @@ const Hero = () => {
   };
 
   const handleDownloadCV = () => {
-    alert("CV generation feature coming soon! You can contact Manikandan at manikandan.dev.startup@gmail.com directly.");
+    const link = document.createElement('a');
+
+    link.href = '/maniresume.pdf';
+
+    link.download = 'Manikandan_Resume.pdf';
+
+    document.body.appendChild(link);
+
+    link.click();
+
+    document.body.removeChild(link);
   };
 
   return (
