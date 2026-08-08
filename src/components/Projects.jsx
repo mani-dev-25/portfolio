@@ -83,7 +83,7 @@ const Projects = () => {
           {projectsList.map((project, idx) => (
             <div
               key={project.id}
-              className={project.featured ? 'col-12' : 'col-lg-4 col-md-6'}
+              className="col-lg-6 col-md-12"
             >
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
@@ -93,18 +93,16 @@ const Projects = () => {
                 className="glass-card overflow-hidden h-100"
                 style={{
                   display: 'flex',
-                  flexDirection: project.featured ? 'row' : 'column',
+                  flexDirection: 'column',
                   flexWrap: 'wrap',
                   position: 'relative',
-                  border: project.featured ? '1px solid rgba(0, 242, 254, 0.15)' : '1px solid rgba(255, 255, 255, 0.08)',
-                  background: project.featured
-                    ? 'linear-gradient(135deg, rgba(3, 0, 20, 0.9) 0%, rgba(127, 0, 255, 0.03) 100%)'
-                    : 'var(--glass-bg)'
+                  border: '1px solid rgba(0, 242, 254, 0.15)',
+                  background: 'linear-gradient(135deg, rgba(3, 0, 20, 0.9) 0%, rgba(127, 0, 255, 0.03) 100%)'
                 }}
                 whileHover={{
                   y: -8,
-                  borderColor: project.featured ? 'var(--accent-cyan)' : 'var(--accent-purple)',
-                  boxShadow: project.featured ? 'var(--shadow-cyan)' : 'var(--shadow-purple)'
+                  borderColor: 'var(--accent-cyan)',
+                  boxShadow: 'var(--shadow-cyan)'
                 }}
               >
                 {/* Featured Badge */}
@@ -129,16 +127,18 @@ const Projects = () => {
 
                 {/* Project Image Column */}
                 <div
-                  className={project.featured ? 'col-lg-6 col-12' : 'col-12'}
-                  style={{ overflow: 'hidden', position: 'relative', minHeight: '250px' }}
+                  className="col-12"
+                  style={{ overflow: 'hidden', position: 'relative' }}
                 >
                   <img
                     src={project.image}
                     alt={project.title}
-                    className="w-100 h-100 object-fit-contain"
+                    className="w-100"
                     style={{
                       transition: 'transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
-                      minHeight: '250px'
+                      display: 'block',
+                      height: 'auto',
+                      objectFit: 'contain'
                     }}
                     onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.08)'}
                     onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
@@ -159,7 +159,7 @@ const Projects = () => {
 
                 {/* Project Details Column */}
                 <div
-                  className={project.featured ? 'col-lg-6 col-12 p-4 d-flex flex-column justify-content-between' : 'p-4 d-flex flex-column justify-content-between flex-grow-1'}
+                  className="col-12 p-4 d-flex flex-column justify-content-between"
                 >
                   <div>
                     <div className="d-flex align-items-center gap-2 mb-2">
