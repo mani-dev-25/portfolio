@@ -1,6 +1,8 @@
 import { motion } from 'framer-motion';
-import { FaGithub, FaExternalLinkAlt, FaTv } from 'react-icons/fa';
+import { FaGithub, FaExternalLinkAlt, FaTv, FaRobot, FaWind } from 'react-icons/fa';
 import toonflixImg from '../assets/toonflix.png';
+import aichatbotImg from '../assets/aichatbot.png';
+import aerotrackImg from '../assets/aerotrack.png';
 
 const Projects = () => {
   const projectsList = [
@@ -20,7 +22,43 @@ const Projects = () => {
       icon: <FaTv />,
       github: 'https://github.com/mani-dev-25/Toonflix',
       live: 'https://github.com/mani-dev-25/Toonflix',
-      featured: true
+      featured: false
+    },
+    {
+      id: 2,
+      title: 'AI Chatbot',
+      subtitle: 'AI Knowledge Bot',
+      desc: 'An intelligent conversational agent powered by AI, designed to answer queries, provide contextual information, and assist users seamlessly.',
+      features: [
+        'Real-time Contextual Responses (Powered by LLMs)',
+        'Modern Chat Interface with smooth message bubbles',
+        'Intuitive input controls and dynamic scrolling',
+        'Responsive layout for both desktop and mobile'
+      ],
+      tags: ['React.js', 'AI', 'Chat UI', 'CSS3'],
+      image: aichatbotImg,
+      icon: <FaRobot />,
+      github: 'https://github.com/mani-dev-25/ai-chatbot',
+      live: 'https://github.com/mani-dev-25/ai-chatbot',
+      featured: false
+    },
+    {
+      id: 3,
+      title: 'AeroTrack',
+      subtitle: 'Air Quality Monitoring Dashboard',
+      desc: 'A comprehensive real-time dashboard for monitoring neighborhood air quality, providing vital health alerts and trend analyses.',
+      features: [
+        'Live Air Quality Index (AQI) tracking across locations',
+        'High Pollution Alerts for hazardous areas',
+        'Interactive widgets detailing Good, Moderate, Unhealthy, and Danger readings',
+        'PM Value Trends for historical data visualization'
+      ],
+      tags: ['React.js', 'Data Visualization', 'UI/UX', 'Bootstrap 5'],
+      image: aerotrackImg,
+      icon: <FaWind />,
+      github: 'https://github.com/mani-dev-25/aerotrack',
+      live: 'https://github.com/mani-dev-25/aerotrack',
+      featured: false
     }
   ];
 
@@ -45,7 +83,7 @@ const Projects = () => {
           {projectsList.map((project, idx) => (
             <div
               key={project.id}
-              className={project.featured ? 'col-12' : 'col-lg-6 col-md-12'}
+              className={project.featured ? 'col-12' : 'col-lg-4 col-md-6'}
             >
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
@@ -97,7 +135,7 @@ const Projects = () => {
                   <img
                     src={project.image}
                     alt={project.title}
-                    className="w-100 h-100 object-fit-cover"
+                    className="w-100 h-100 object-fit-contain"
                     style={{
                       transition: 'transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
                       minHeight: '250px'
