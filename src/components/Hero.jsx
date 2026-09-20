@@ -168,7 +168,6 @@ const Hero = () => {
               <div className="d-flex gap-3 justify-content-center justify-content-lg-start">
                 {[
                   { icon: <FaGithub />, link: 'https://github.com/mani-dev-25', label: 'GitHub' },
-                  { icon: <FaLinkedin />, link: 'https://www.linkedin.com/in/mani-kandan-2527-/', label: 'LinkedIn' },
                   { icon: <FaYoutube />, link: 'https://www.youtube.com/@Pynerix', label: 'YouTube' },
                   { icon: <FaEnvelope />, link: 'mailto:manikandan.dev.startup@gmail.com', label: 'Email' }
                 ].map((social, i) => (
